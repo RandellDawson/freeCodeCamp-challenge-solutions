@@ -17,9 +17,18 @@ Code by: Randell Dawson
 http://www.freecodecamp.com/rmdawson71
 */
 
+// original version
 function palindrome(str) {
   str = str.replace(/_|\W/g,'').toLowerCase();
   var revString = str.split('').reverse().join('');
   return revString == str ? true : false;
 }
+
+// The following version works without arrays and is implemented in (n/2) iterations where n is string length
+function palindrome_v2(str) {
+  str = str.replace(/_|\W/g,'').toLowerCase();
+  for (var i=0;i<=(str.length-1)/2;i++) if (str[i] !== str[str.length-1-i]) return false;
+  return true;
+}
+
 palindrome("eye");
