@@ -16,7 +16,7 @@ function mutation(arr) {
 }
 
 function mutation_v2(arr) {
-  var a = arr[1].toLowerCase().split('');
+  var a = arr[1].toLowerCase();
   var b = arr[0].toLowerCase();
   for (i=0;i<a.length;i++) {
     if (!b.includes(a[i])) return false;
