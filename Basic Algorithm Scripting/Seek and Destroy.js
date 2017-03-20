@@ -9,6 +9,6 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function destroyer(arr, ...args) {
-    return arr.filter( val =>  args.indexOf(val) < 0);
+    return arr.filter( val =>  !args.includes(val));
 }
 destroyer([1, 2, 3, 1, 2, 3], 2, 3);

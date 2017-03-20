@@ -7,8 +7,7 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function chunkArrayInGroups(arr, size) {
-  var groupsArr = [];
-  for (i=0; i<arr.length; i+=size) groupsArr.push(arr.slice(i,i+size));
+  for (i=0, groupsArr = []; i<arr.length; i+=size) groupsArr.push(arr.slice(i,i+size));
   return groupsArr;
 }
 

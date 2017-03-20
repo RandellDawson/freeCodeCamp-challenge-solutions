@@ -19,23 +19,15 @@ function whatIsInAName(collection, source) {
   // What's in a name?
   var arr = [];
   // Only change code below this line
-  var found;
-  var collectionObj;
   for (var i = 0; i < collection.length; i++) {
-    collectionObj = collection[i];
-    found = true;
+    var found = true;
     for (var sourceProp in source) {
-      if (collectionObj.hasOwnProperty(sourceProp)) {
-        if (collectionObj[sourceProp] !== source[sourceProp]) {
-          found = false;
-          break;
-        }
-      } else {
-          found = false;
-          break;
+      if (collection[i][sourceProp] !== source[sourceProp]) {
+        found = false;
+        break;
       }
     }
-    if (found) arr.push(collectionObj);
+    if (found) arr.push(collection[i]);
   }
   // Only change code above this line
   return arr;
