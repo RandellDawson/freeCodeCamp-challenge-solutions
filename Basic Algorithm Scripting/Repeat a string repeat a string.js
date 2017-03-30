@@ -10,9 +10,13 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function repeatStringNumTimes(str, num) {
-  if (num < 1) return "";
-  if (num === 1) return str;
-  return str+repeatStringNumTimes(str,num-1);
+  return num < 1 ? '' : str+repeatStringNumTimes(str,num-1);
 }
 
+//iterave solution
+function repeatStringNumTimes_v2(str, num) {
+  for (var newStr = '', i=0; i<num; i++)
+    newStr += str;
+  return newStr;
+}
 repeatStringNumTimes("abc", 3);

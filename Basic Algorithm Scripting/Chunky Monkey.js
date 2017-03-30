@@ -28,6 +28,14 @@ function chunkArrayInGroups_v2(arr, size) {
   return groupsArr;
 }
 
+// functional approach with reduce
+function chunkArrayInGroups_v3(arr, size) {
+  return arr.reduce((groupsArr,_,i)=> {
+    if (i%size === 0) groupsArr.push(arr.slice(i,i+size));
+    return groupsArr;
+  },[]);
+}
+
 chunkArrayInGroups(["a", "b", "c", "d"], 2); //should return [["a", "b"], ["c", "d"]].
 chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3); //should return [[0, 1, 2], [3, 4, 5]].
 chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2); //should return [[0, 1], [2, 3], [4, 5]].

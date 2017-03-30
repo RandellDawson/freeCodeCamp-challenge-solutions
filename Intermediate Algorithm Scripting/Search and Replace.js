@@ -19,8 +19,7 @@ http://www.freecodecamp.com/rmdawson71
 function myReplace(str, before, after) {
   if (before[0] == before[0].toUpperCase())
     after = after[0].toUpperCase() + after.slice(1);
-  var pattern = new RegExp(before, 'gi');
-  return str.replace(pattern, after);
+  return str.replace(before, after);
 }
 
 myReplace("He is Sleeping on the couch", "Sleeping", "sitting");

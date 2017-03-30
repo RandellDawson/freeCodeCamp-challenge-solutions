@@ -29,5 +29,18 @@ function rot13(str) {
   return decodedStr;
 }
 
+// using reduce
+function rot13_v2(str) { 
+  return str.split('').reduce( (decodedStr,char) => {
+    var charCode = char.charCodeAt(char);
+    if (charCode >= 65 && charCode <=90) {
+      var newCode = charCode - 13;
+      if (newCode < 65) return decodedStr + String.fromCharCode(90-(65-newCode)+1);   
+      else return decodedStr + String.fromCharCode(newCode); 
+    }
+    else return decodedStr + char;    
+  },"");
+}
+
 // Change the inputs below to test
 rot13("SERR PBQR PNZC");
