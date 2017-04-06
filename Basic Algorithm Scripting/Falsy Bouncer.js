@@ -8,7 +8,7 @@ Code by: Randell Dawson
 http://www.freecodecamp.com/rmdawson71
 */
 function bouncer(arr) {
-  return arr.filter( (val)=> val);
+  return arr.filter(val=>val);
 }
 
 bouncer([7, "ate", "", false, 9]);
