@@ -12,12 +12,8 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function factorialize(num) {
-  if (num === 0 || num === 1) return 1;
-  product = 1;
-  for (i = 2; i < num + 1; i++) {
-    product *= i;
-  }
-  return product;
+  for (var factode=1;num > 0;) factode *= num--;
+  return factode;
 }
 
 factorialize(5);
