@@ -12,7 +12,7 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function factorialize(num) {
-  for (var product=1;num > 0;) factode *= num--;
+  for (var product=1;num > 0;) product *= num--;
   return product;
 }
 
