@@ -9,6 +9,15 @@ Code by: Randell Dawson
 http://www.freecodecamp.com/rmdawson71
 */
 
+function updateInventory_v2(arr1, arr2) {
+    let invObj = arr1.reduce((obj,arr) => {obj[arr[1]]=arr[0]; return obj},{});
+    arr2.map(arr => {
+      if (invObj.hasOwnProperty(arr[1])) invObj[arr[1]] += arr[0];
+      else  invObj[arr[1]] = arr[0];
+    });
+    return Object.keys(invObj).sort().reduce((arr,key) => arr.concat([[invObj[key],key]]),[]);
+}
+
 // original solution
 function updateInventory(arr1, arr2) {
     var invObj = {};
@@ -29,17 +38,6 @@ function updateInventory(arr1, arr2) {
     }
     return arr1;
 }
-
-// functional solution
-function updateInventory_v2(arr1, arr2) {
-    let invObj = arr1.reduce((obj,arr) => {obj[arr[1]]=arr[0]; return obj},{});
-    arr2.map(arr => {
-      if (invObj.hasOwnProperty(arr[1])) invObj[arr[1]] += arr[0];
-      else  invObj[arr[1]] = arr[0];
-    })
-    return Object.keys(invObj).sort().reduce((arr,key) => arr.concat([[invObj[key],key]]),[]);
-}
-
 // Example inventory lists
 var curInv = [ [21, "Bowling Ball"], [2, "Dirty Sock"],
     [1, "Hair Pin"], [5, "Microphone"] ];
