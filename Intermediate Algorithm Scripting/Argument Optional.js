@@ -18,14 +18,8 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function addTogether(...args) {
-  var isNum = n => typeof n=="number" ? true : false;
-  var sumTwoAnd = (x) => isNum(x) ? x+a : undefined;
-  if (args.length > 1 && isNum(args[0]) && isNum(args[1]))
-    return args[0] + args[1];
-  else if (args.length === 1 && isNum(args[0])) {
-    var a = args[0];
-    return sumTwoAnd;
-  }
+  var isNum = (nums) => nums.every(n=>typeof n=="number");
+  if (isNum(args)) return args.length > 1 ? args[0] + args[1] : x => isNum([x]) ? x+args[0] : undefined;
 }
 
-addTogether("http://bit.ly/IqT6zt");
+addTogether();

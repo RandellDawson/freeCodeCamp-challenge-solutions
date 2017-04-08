@@ -8,7 +8,7 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function diffArray(arr1, arr2) {
-  return arr1.filter((a) =>arr2.indexOf(a) < 0).concat(arr2.filter((a) => arr1.indexOf(a) < 0));
+  return arr1.filter(a =>!arr2.includes(a)).concat(arr2.filter(a => !arr1.includes(a)));
 }
 
 diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
