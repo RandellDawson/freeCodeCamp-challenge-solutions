@@ -16,11 +16,8 @@ Code by: Randell Dawson
 http://www.freecodecamp.com/rmdawson71
 */
 function pairElement(str) {
-  var mapping = {'G':'C','C':'G','A':'T','T':'A'};
-  return str.split('').reduce( (newArr,item) => {
-    newArr.push([item, mapping[item]]);
-    return newArr;
-  },[]);
+  const mapping = {'G':'C','C':'G','A':'T','T':'A'};
+  return str.split('').map(letter => [letter, mapping[letter]]);
 }
 
 pairElement("ATCGA");
