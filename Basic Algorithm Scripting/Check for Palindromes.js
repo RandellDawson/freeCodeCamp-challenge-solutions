@@ -20,8 +20,7 @@ http://www.freecodecamp.com/rmdawson71
 // original version
 function palindrome(str) {
   str = str.replace(/_|\W/g,'').toLowerCase();
-  var revString = str.split('').reverse().join('');
-  return revString == str;
+  return str === str.split('').reverse().join('');
 }
 
 // The following version works without arrays and is implemented in (n/2) iterations where n is string length
