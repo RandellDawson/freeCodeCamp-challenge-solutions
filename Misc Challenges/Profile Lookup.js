@@ -47,6 +47,12 @@ var contacts = [
 ];
 
 function lookUpProfile(name, prop){
+  const fnMatch = contacts.filter(cont => cont.firstName === name);
+  return fnMatch.length ? (fnMatch[0][prop] ? fnMatch[0][prop] : "No such property") : "No such contact";
+}
+
+// original non functional solution
+function lookUpProfile(name, prop){
   for (var i = 0; i < contacts.length; i++)
     if (contacts[i].firstName == name)
       return contacts[i].hasOwnProperty(prop) ? contacts[i][prop] : "No such property";
