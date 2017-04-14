@@ -12,9 +12,9 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function translatePigLatin(str) {
-  var vowels = str.match(/[aeiou]/i);
+  const vowels = str.match(/[aeiou]/i);
   if (vowels !== null) {
-    var idx = str.indexOf(vowels[0]);
+    const idx = str.indexOf(vowels[0]);
     return  idx > 0 ? str.slice(idx) + str.slice(0,idx) + 'ay' : str + 'way';
   }
   return str+'ay';
