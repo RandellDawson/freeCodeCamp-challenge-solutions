@@ -11,7 +11,7 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function confirmEnding(str, target) {
-  return str.substring(str.length - target.length) === target;
+  return str.slice(-target.length) == target;
 }
 
 confirmEnding("Bastian", "n");
