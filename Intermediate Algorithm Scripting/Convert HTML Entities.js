@@ -8,8 +8,14 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function convertHTML(str) {
-  const map = {'&':'&amp;', '<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'};
-  return Object.keys(map).reduce((newStr,find) => newStr.replace(new RegExp(find, 'g'),map[find]),str);
+  const conversions = {'&':'&amp;', '<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'};
+  return str.split('').map(char => conversions[char] ? char = conversions[char] : char).join('');
+}
+
+// regex solution
+function convertHTML(str) {
+  const conversions = {'&':'&amp;', '<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'};
+  return Object.keys(conversions).reduce((newStr,find) => newStr.replace(new RegExp(find, 'g'),conversions[find]),str);
 }
 
 // original solution
