@@ -8,6 +8,12 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function convertHTML(str) {
+  const map = {'&':'&amp;', '<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'};
+  return Object.keys(map).reduce((newStr,find) => newStr.replace(new RegExp(find, 'g'),map[find]),str);
+}
+
+// original solution
+function convertHTML(str) {
   return str.replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
       .replace(/>/g,"&gt;")
