@@ -15,16 +15,7 @@ Code by: Randell Dawson
 http://www.freecodecamp.com/rmdawson71
 */
 
-function uniteUnique(...args) {
-  var seen = {};
-  return args.reduce( (newArr,arg) => {
-    return newArr.concat(arg.filter( val => {
-      if (!seen.hasOwnProperty(val)) {
-        seen[val]=true;
-        return true;
-      }
-      return false;
-    }));
-  },[]);
+function uniteUnique(...arrays) {
+  return arrays.reduce((all,arr)=>all.concat(arr.filter(val=>!all.includes(val))));
 }
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
