@@ -15,7 +15,7 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function sumFibs(num) {
-  if (num==1) return sum;
+  if (num==1) return num;
   var sum = 2;
   var prevFib = 1;
   nextFib = 2;
