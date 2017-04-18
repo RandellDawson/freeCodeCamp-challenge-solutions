@@ -1,5 +1,5 @@
 /* Mutations
-  
+
 Return true if the string in the first element of the array contains all of the letters of the string in the
 second element of the array.
 
@@ -15,10 +15,17 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function mutation(arr) {
+  var re = new RegExp('[^'+arr[0]+']', "i");
+  return !re.test(arr[1]);
+}
+
+// functional version
+function mutation(arr) {
   return arr[1].toLowerCase().split('').every( elem => arr[0].toLowerCase().includes(elem));
 }
 
-function mutation_v2(arr) {
+// original version
+function mutation(arr) {
   var a = arr[1].toLowerCase();
   var b = arr[0].toLowerCase();
   for (i=0;i<a.length;i++) {
