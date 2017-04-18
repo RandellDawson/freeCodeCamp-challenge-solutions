@@ -11,9 +11,16 @@ Code by: Randell Dawson
 http://www.freecodecamp.com/rmdawson71
 */
 
+// iterative version
 function factorialize(num) {
-  for (var product=1;num > 0;) product *= num--;
+  if (num < 0) return;
+  for (var product=1;num > 0;num--) product *= num;
   return product;
+}
+
+// recursive version
+function factorialize(num) {
+  return num < 0 ? undefined : num <= 1 ? 1 : num*factorialize(num-1);
 }
 
 factorialize(5);
