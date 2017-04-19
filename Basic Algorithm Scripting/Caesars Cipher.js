@@ -15,32 +15,19 @@ Code by: Randell Dawson
 http://www.freecodecamp.com/rmdawson71
 */
 
+// functional solution
 function rot13(str) {
-  var decodedStr='';
-  for (var i=0;i<str.length;i++) {
+  return str.split('')
+    .reduce((dec,char) => dec.concat(/[A-Z]/.test(char) ? String.fromCharCode(65+(char.charCodeAt()%26)) : char),'');
+}
+
+// original solution
+function rot13(str) {
+  for (var i=0, decStr='';i<str.length;i++) {
     var charCode = str.charCodeAt(i);
-    if (charCode >= 65 && charCode <=90) {
-      var newCode = charCode - 13;
-      if (newCode < 65) decodedStr += String.fromCharCode(90-(64-newCode));
-      else decodedStr += String.fromCharCode(newCode);
-    }
-    else decodedStr += str[i];
+    decStr += charCode >= 65 && charCode <=90 ? String.fromCharCode(65+(charCode)%26) : str[i];
   }
-  return decodedStr;
+  return decStr;
 }
 
-// using reduce
-function rot13_v2(str) { 
-  return str.split('').reduce( (decodedStr,char) => {
-    var charCode = char.charCodeAt(char);
-    if (charCode >= 65 && charCode <=90) {
-      var newCode = charCode - 13;
-      if (newCode < 65) return decodedStr + String.fromCharCode(90-(65-newCode)+1);   
-      else return decodedStr + String.fromCharCode(newCode); 
-    }
-    else return decodedStr + char;    
-  },"");
-}
-
-// Change the inputs below to test
 rot13("SERR PBQR PNZC");
