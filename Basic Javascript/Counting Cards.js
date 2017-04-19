@@ -30,9 +30,9 @@ http://www.freecodecamp.com/rmdawson71
 
 var count = 0;
 function cc(card) {
-  if (card<=6) count++;
-  else if (/[1JQKA]/i.test(card)) count--;
-  return count > 0 ? count+' Bet' : count+' Hold';
+  if (card <= 6) count++;
+  else if (/[1JQKA]/.test(card)) count--;
+  return count + (count > 0 ? ' Bet' : ' Hold');
 }
 
 // Add/remove calls to test your function.
