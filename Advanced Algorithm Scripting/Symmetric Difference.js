@@ -14,16 +14,20 @@ http://www.freecodecamp.com/rmdawson71
 */
 
 function sym(...args) {
-  function difference(arr1,arr2) {
-    return arr1.reduce( (arr,val) => {
-      if (!arr2.includes(val) && !arr.includes(val)) arr.push(val);
+  const oneNotInOther = (one,other) => one.reduce((arr,val) => {
+      if (!other.includes(val) && !arr.includes(val)) arr.push(val);
       return arr;
-    },[]).concat(arr2.reduce( (arr,val) => {
-      if (!arr1.includes(val) && !arr.includes(val)) arr.push(val);
-      return arr;
-    },[]));
-  }
-  return args.reduce( (newArr,curArr) => difference(newArr,curArr),[]);
+  },[]);
+  const difference = (arr1,arr2) => oneNotInOther(arr1,arr2).concat(oneNotInOther(arr2,arr1));
+  return args.reduce((newArr,curArr) => difference(newArr,curArr),[]);
+}
+
+// functional solution
+function sym(...args) {
+  const oneNotInTwo = (one, two) => one.filter(val => !two.includes(val));
+  const difference = (arr1, arr2) => oneNotInTwo(arr1,arr2).concat(oneNotInTwo(arr2,arr1));
+  const diffSet = new Set(args.reduce((a,b) => difference(a,b),[]));
+  return [...diffSet];
 }
 
 sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]);
