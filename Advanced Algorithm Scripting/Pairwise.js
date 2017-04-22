@@ -23,16 +23,27 @@ http://www.freecodecamp.com/rmdawson71
 
 function pairwise(arr, arg) {
   let sum = 0;
-  let used = [];
-  for (var i=0; i<arr.length;i++) {
-    for (var j = i + 1; j < arr.length; j++) {
-      if (arr[i] + arr[j] === arg && used.indexOf(i) < 0 && used.indexOf(j) < 0) {
-        used.push(i,j);
-        sum += (i+j);
+  for (let used = {}, i=0; i<arr.length;i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === arg && !used[i] && !used[j]) {
+        used[i]=used[j] = true;
+        sum += i+j;
       }
     }
   }
   return sum;
+}
+
+// functional solution;
+function pairwise(arr, arg) {
+  let used = {};
+  return arr.reduce((sum,val,i,origArr) => origArr.reduce((sum2,val2,j) => {
+    if (i !== j && val + val2 === arg && !used[i] && !used[j]) {
+      used[i] = used[j] = true;
+      sum2 += i+j;
+    }
+    return sum2;
+  },sum),0);
 }
 
 pairwise([1, 1, 1], 2);
