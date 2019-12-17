@@ -35,7 +35,7 @@ const Person = function(firstAndLast) {
   };
 };
 
-var Person = function(firstAndLast) {
+const Person = function(firstAndLast) {
     let fullNameArr = firstAndLast.split(" ");
     this.setFullName = firstAndLast => {fullNameArr = firstAndLast.split(" ")};
     this.setFirstName = first => {fullNameArr[0] = first};
@@ -43,6 +43,17 @@ var Person = function(firstAndLast) {
     this.getFullName = () => fullNameArr.join(" ");
     this.getFirstName = () => fullNameArr[0];
     this.getLastName = () => fullNameArr[1];
+};
+
+const Person = function (firstAndLast) {
+  let _firstName, _lastName;
+  this.setFullName = fullName => {[ _firstName, _lastName ] = fullName.split(" ")};
+  this.getFullName = () => `${_firstName} ${_lastName}`;
+  this.getLastName = () => _lastName;
+  this.getFirstName = () => _firstName;
+  this.setFirstName = firstName => {_firstName = firstName};
+  this.setLastName = lastName => {_lastName = lastName};
+  this.setFullName(firstAndLast);
 };
 
 var bob = new Person('Bob Ross');
