@@ -38,9 +38,8 @@ http://www.freecodecamp.com/rmdawson71
 function filteredArray(arr, elem) {
   let newArr = [];
   // change code below this line
-  for (let i=0;i<arr.length;i++) {
-    if (arr[i].indexOf(elem)<0) {
-
+  for (let i = 0; i<arr.length; i++) {
+    if (arr[i].indexOf(elem) < 0) {
       newArr.push(arr[i]);
     }
   }
