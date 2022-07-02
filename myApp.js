@@ -1,7 +1,10 @@
 require('dotenv').config();
+const bodyParser = require('body-parser');
 let express = require('express');
 let app = express();
 console.log('Hello World');
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - ${req.ip}`);
@@ -39,6 +42,10 @@ app.get('/:word/echo', (req, res) => {
 app.route('/name')
   .get((req, res) => {
     const { first, last } = req.query;
+    res.json({ name: `${first} ${last}`});
+  })
+  .post((req, res) => {
+    const { first, last } = req.body;
     res.json({ name: `${first} ${last}`});
   });
 
