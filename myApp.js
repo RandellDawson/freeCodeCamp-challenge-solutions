@@ -17,11 +17,9 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
 app.get('/json', (req, res) => {
-  const mySecret = process.env.MESSAGE_STYLE;
-  console.log(mySecret);
-  const message = mySecret === 'uppercase'
+  const messageStyle = process.env.MESSAGE_STYLE;
+  const message = messageStyle === 'uppercase'
     ? 'HELLO JSON'
     : 'Hello json';
   res.json({ message });
