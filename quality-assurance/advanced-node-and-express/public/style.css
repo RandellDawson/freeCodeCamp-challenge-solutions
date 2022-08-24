@@ -1,0 +1,64 @@
+.border {
+  border-style: inset;
+  border-width: 1px;
+  margin: 10px;
+}
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div > input {
+  margin: 0.5rem;
+}
+
+.login {
+  border: solid 2px #777;
+  width: 50%;
+  background-color: aliceblue;
+}
+
+a.text {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+form {
+  padding: 3px;
+  width: 500px;
+}
+
+form input {
+  background-color: #eee;
+  border: green solid 2px;
+  padding: 10px; 
+  width: 90%; 
+  margin-right: .5%;
+}
+
+form button { 
+  width: 9%;
+  background: rgb(130, 224, 255);
+  border: none; 
+  padding: 10px; 
+}
+
+#messages { 
+  list-style-type: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  height: 20em;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#messages li { 
+  padding: 5px 10px;
+}
+
+#messages li:nth-child(odd) { 
+  background: #eee;
+}
