@@ -14,4 +14,14 @@ function confirmEnding(str, target) {
   return str.slice(-target.length) == target;
 }
 
+function confirmEnding(str, target) {
+  for (let i = target.length - 1; i >= 0; i--) {
+    if (target[i] !== str[str.length - target.length + i]) return false;
+  }
+  return true;
+}
+
+const confirmEnding = (str, target) =>[...target]
+  .every((char, i) => char === str[str.length - target.length + i]);
+
 confirmEnding("Bastian", "n");
